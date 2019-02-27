@@ -1,0 +1,117 @@
+.popup{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: .1s;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+    background: rgba($white-color, .3);
+
+    @supports not (backdrop-filter: blur(5px)){
+        background:rgba(0, 0, 0, 0.644);
+    }
+
+    &__close{
+        &:link,
+        &:visited{
+            position: absolute;
+            top:2rem;
+            right:4rem;
+            font-size: 3.5rem;
+            display: block;
+            z-index: 5000;
+            text-decoration: none;
+            color:$font-dark;
+            transition: .3s;
+        }
+        
+        &:hover{
+            color:$primary-color-dark;
+            transform: scale(1.15);
+        }
+    }
+
+    &__container{
+        @include element-center;
+        width:80%;
+        height:75vh;
+        border-radius: 3px;
+        background:$white-color;
+        @include clear-fix;
+        transition: .3s ease-in-out;
+        box-shadow: 0 1.5rem 3rem rgba($box-shadow, .3);     
+        overflow: hidden;  
+        transform: translate(-50%, -50%) scale(.1);
+    }
+
+    &:target{
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);  
+    }
+
+    &:target &__container{
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__img-box{
+        width:33.3%;
+        height: 100%;
+        float:left;
+        overflow: hidden;
+        @include respond(tab-port){
+            float:none;
+            display: block;
+            width:100%;
+            height:20rem;
+        }
+
+        @include respond(phone){
+            display: none;
+        }
+    }
+
+    &__img{
+        width:100%;
+        height: 50%;
+        float: left;
+        @include clear-fix;
+
+        @include respond(tab-port){
+            width:50%;
+            height:20rem;
+            object-fit: cover;
+            // background-position: center;
+        }
+    }
+
+    &__content{
+        width: 66%;
+        display: inline-block;
+        padding:4rem 4rem 4rem 6rem;
+        position: relative;
+
+        @include respond(tab-land){
+            padding:2rem 4rem;
+        }
+
+        @include respond(tab-port){
+            display: block;
+            width:100%;
+        }
+    }
+
+    &__text{
+        column-count: 2;
+        column-gap: 6rem;
+        column-rule: 1px solid $color-gray-dark-1;
+        font-size: 1.5rem;
+        @include respond(tab-port){
+            column-count: 1;
+        }
+    }
+}

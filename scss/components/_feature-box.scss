@@ -1,0 +1,24 @@
+.feature-box{
+    background:rgba($white-color, .75);
+    padding: 2rem 2rem 4rem 2rem;   
+    box-shadow: 0rem 1.5rem 3rem rgba($box-shadow, .2);
+    perspective: 150rem;
+    transition: 1s;   
+    border-radius: 3px;
+    @include respond(tab-port){
+        max-width: 50rem;
+        margin:0 auto;
+    }
+    &__icon{
+        font-size:6rem;
+        background: linear-gradient(to right bottom, $primary-color-light, $primary-color-dark);
+        -webkit-background-clip:text;
+        color:transparent;
+        display: block;
+    }
+
+    &:hover{
+        transform: scale(1.1) rotateY(360deg);
+        box-shadow: 0rem 1.5rem 4rem rgba($box-shadow, .4);
+    }
+}

@@ -1,0 +1,31 @@
+.header{
+    background:linear-gradient(to right bottom, rgba($primary-color-light, .8), rgba($primary-color-dark, .8)), url(../img/hero-small.jpg);
+    height: 95vh;
+    position: relative;
+    background-position: top;
+    background-size: cover;
+    clip-path:polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+    backface-visibility:hidden;
+    
+    @media (min-resolution: 192dpi) and (min-width: 37.5em),
+        (min-width:125em){
+        background:linear-gradient(to right bottom, rgba($primary-color-light, .8), rgba($primary-color-dark, .8)), url(../img/hero.jpg);
+    }
+
+    @include respond(phone){
+        clip-path:polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+    &__logo{
+        position: absolute;
+        top:4rem;
+        left:4rem;
+        height: 3.5rem;
+    }
+
+    &__text-box{
+        @include element-center;
+        top:38%;
+        text-align: center;
+    }
+}

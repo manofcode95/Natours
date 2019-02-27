@@ -1,0 +1,74 @@
+body{
+    font-family: 'Lato', sans-serif;
+    line-height: 1.7;
+    font-weight:400;
+    color:$font-dark;
+}
+
+p{
+    font-size: $font-size-default;
+
+    &:not(:last-child){
+        margin-bottom: $text-margin-bot;
+    }
+}
+
+.primary-heading{
+    color: $font-white;
+    text-transform: uppercase;
+
+
+    &--top{
+        font-size:6rem;
+        letter-spacing: 3rem;
+        margin-right:-3rem;
+        font-weight: 300;
+        display:block;
+        animation: moveLeftIn 1s ease-out;
+
+        @include respond(phone){
+            letter-spacing: 1rem;
+            margin-right:-1rem;
+        }
+
+    }
+
+    &--bot{
+        font-size:2rem;
+        letter-spacing: 1.3rem;
+        margin-right:-2rem;
+        font-weight: 700;
+        display:block;
+        animation: moveRightIn 1s ease-out;   
+
+        @include respond(phone){
+            letter-spacing: .5rem;
+            margin-right:-1.2rem;
+        }
+    }
+}
+
+.secondary-heading{
+    text-transform: uppercase;
+    font-size:3.5rem;
+    font-weight: 700;
+    background-image: url(../img/color-grad.JPG);
+    color:transparent;
+    -webkit-background-clip: text;
+    transition: all .3s;
+    background-repeat: repeat-x;
+    animation: color-run 15s linear infinite;
+    line-height: 4rem;
+ 
+    &:hover{
+        transform: skewX(15deg) rotate(2deg) scale(1.05);
+        text-shadow: 0 1.5rem 3rem rgba($box-shadow, .2);
+    }
+}
+
+.tertiary-heading{
+    text-transform: uppercase;
+    font-size:2rem;
+    font-weight: 700;
+    color:$font-dark;
+}   

@@ -1,0 +1,193 @@
+.card{
+    position: relative;
+    height:50rem;
+    perspective: 150rem;
+    
+
+    &__side{
+        height:50rem;
+        width:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        text-align: center;
+        transition: 1s;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow:0rem 1.5rem 3rem rgba($box-shadow, .2);
+    }
+
+    &__front{
+        background:$white-color;
+    }
+    
+    &__back{ 
+        transform:rotateY(180deg);
+        &--p1{
+            background: linear-gradient(to bottom right, rgba($secondary-color-light, .85), rgba($secondary-color-dark, .8));
+        }
+
+        &--p2{
+            background: linear-gradient(to bottom right, rgba($primary-color-light, .85), rgba($primary-color-dark, .8));
+        }
+
+        &--p3{
+            background: linear-gradient(to bottom right, rgba($tertiary-color-light, .85), rgba($tertiary-color-dark, .8));
+        }
+    }
+
+    &__img{
+        width:101%;
+        height: 23rem;   
+        position: relative;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path:polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        background-size: cover;
+        background-position: center;
+        &--p1{
+            background-image: linear-gradient(to bottom right, $secondary-color-light, $secondary-color-dark), url(../img/nat-5.jpg);
+   
+        }
+
+        &--p2{
+            background-image: linear-gradient(to bottom right, $primary-color-light, $primary-color-dark), url(../img/nat-6.jpg);
+        }
+
+        &--p3{
+            background-image: linear-gradient(to bottom right, $tertiary-color-light, $tertiary-color-dark), url(../img/nat-7.jpg);
+        }
+
+        
+    }
+
+    &__title{
+        font-size: 3rem;
+        font-weight: 300;
+        color:$font-white;
+        text-transform: uppercase;
+        position: absolute;
+        z-index: 15;
+        top:13rem;
+        right:2rem;
+        display: inline-block;
+        padding:0rem 1rem;
+        width:70%;
+        text-align: right;
+
+        &-span{
+            
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            padding:1rem 2rem;
+
+            &--1{
+                background: linear-gradient(to bottom right, rgba($secondary-color-light, .85), rgba($secondary-color-dark, .8));
+            }
+
+            &--2{
+                background: linear-gradient(to bottom right, rgba($primary-color-light, .85), rgba($primary-color-dark, .8));
+            }
+
+            &--3{
+                background: linear-gradient(to bottom right, rgba($tertiary-color-light, .85), rgba($tertiary-color-dark, .8));
+            }
+        }
+    }
+
+    &__details{
+        list-style: none;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        text-align: center;
+        padding: 2rem 8rem;
+    }
+
+    &__item{
+        padding: 1rem;
+        &:not(:last-child){
+            border-bottom: 1px solid $color-gray-dark-1;
+        }
+    }
+
+
+    &__price-box{
+        @include element-center;
+    }
+
+    &__span{
+        font-size: 2rem;
+        font-weight: 400;
+        color:$font-white;
+        display: block;
+
+        
+    }
+
+    &__price{
+        font-size: 6rem; 
+        color: $font-white;
+        font-weight: 100;
+        display: block;
+        padding:4rem 0;
+    }
+
+    &:hover &__front{
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__back{
+        transform: rotateY(360deg);
+    }
+    
+    // small and non-hover screen
+    @media only screen and (max-width: 56.25em),
+    only screen and (hover:none){
+        max-width:40rem;
+        margin:0 auto;
+        height: auto;
+        box-shadow:0rem 1.5rem 3rem rgba($box-shadow, .2);
+        display: block; 
+        background: $white-color;
+        &__side{
+            box-shadow:none;
+            border-radius: 0;
+        }
+
+        &__front{
+            position: relative;
+            border-radius: 3px 3px 0 0;
+        }
+
+        &__back{
+            position: relative;
+            transform:rotateY(0deg);
+            height: 25rem;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+            border-radius: 0 0 3px 3px ;
+        }
+
+        &__title{
+            width: 80%;
+            font-size: 2.5rem;
+        }
+
+        &__details{
+            padding: 2rem 4rem;
+        }
+
+        &__price{
+            padding:0;
+            font-size: 5rem; 
+        }
+
+        &:hover &__front{
+            transform: rotateY(0deg);
+        }
+    
+        &:hover &__back{
+            transform: rotateY(0deg);
+        }
+    }
+}

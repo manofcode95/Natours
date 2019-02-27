@@ -1,0 +1,49 @@
+@mixin element-center{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin clear-fix{
+    &::after{
+        content:'';
+        display:block;
+        visibility: hidden;
+        clear: both;
+    }
+}
+
+@mixin basic-round-btn{
+    display:inline-block;
+    padding:1.5rem 3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size:1.6rem;
+    border-radius: 10rem;
+    position: relative;
+}
+
+@mixin basic-side-btn{
+    content:"";
+    position: absolute;
+    display:inline-block;
+    top:0;
+    left:0
+}
+
+@mixin respond($breakpoint){
+    @if $breakpoint==phone{
+        @media only screen and (max-width:37.5em) {@content}; //600px
+    };
+    @if $breakpoint==tab-port{
+        @media only screen and (max-width:56.25em) {@content}; //900px
+    }; 
+    @if $breakpoint==tab-land{
+        @media only screen and (max-width:75em) {@content}; //1200px
+    };  
+    @if $breakpoint==big-desk{
+        @media only screen and (max-width:112.5em) {@content}; //1800px
+    };   
+}
+

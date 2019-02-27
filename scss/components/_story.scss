@@ -1,0 +1,65 @@
+.story{
+    max-width:80%;
+    margin:0 auto;
+    background:rgba($white-color, .8);
+    padding: 7rem;
+    transform: skewX(-15deg);
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 3rem rgba($box-shadow, .2);
+    
+    @include respond(phone){
+        transform: skewX(0deg); 
+        max-width:100%;
+        padding: 4rem;
+    }
+    
+    &>*{
+        transform: skewX(15deg);
+        @include respond(phone){
+            transform: skewX(0deg); 
+        }
+    }
+
+    &:not(:last-child){
+        margin-bottom: 6rem;
+    }
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        clip-path: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        float:left;
+        margin-right:4rem;
+        position: relative;
+        
+    }
+
+    &__img{
+        height:100%;
+        display: block;
+        transform: translateX(-40px) scale(1.2);
+        transition: .5s;
+    }
+
+    &__author{
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        position: absolute;
+        @include element-center;
+        color: $font-white;
+        text-align: center;
+        transform: translate(-50%, 8rem);
+        transition: .5s;
+    }
+
+    &:hover &__author{
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img{
+        filter: blur(10px);
+        transform: translateX(-40px) scale(1);
+    }
+
+    
+}
